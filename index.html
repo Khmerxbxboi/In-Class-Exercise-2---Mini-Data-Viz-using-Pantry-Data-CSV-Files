@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bulli Sot — Prime Minister</title>
+
+    <!-- p5.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+      :root{
+        /* Nature palette */
+        --bg: #0f1e0f;        /* deep evergreen */
+        --fg: #eaf1e1;        /* misty leaf */
+        --leaf: #89b97b;      /* soft leaf */
+        --moss: #4f7b56;      /* moss green */
+        --soil: #7a5b3a;      /* warm soil */
+        --card: #152815;      /* dark card */
+        --accent: #b5d34b;    /* spring accent */
+        --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        height: 100%;
+        background: radial-gradient(1200px 800px at 20% 0%, #153015 0%, var(--bg) 60%);
+        color: var(--fg);
+        margin: 0;
+        font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      }
+
+      header {
+        padding: clamp(14px, 3.5vw, 24px);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+        backdrop-filter: blur(6px);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .wrap {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 clamp(14px, 4vw, 28px);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .badge {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--leaf), var(--moss));
+        box-shadow: 0 6px 20px rgba(137,185,123,0.25);
+      }
+
+      .title {
+        font-weight: 700;
+        letter-spacing: 0.3px;
+      }
+
+      main {
+        padding: clamp(20px, 4vw, 40px) 0;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: clamp(16px, 4vw, 28px);
+      }
+
+      .hero-copy h1 {
+        font-family: 'Cinzel', serif;
+        font-size: clamp(24px, 4.2vw, 40px);
+        line-height: 1.15;
+        margin: 0 0 10px 0;
+        color: var(--fg);
+        text-shadow: 0 2px 20px rgba(181,211,75,0.15);
+      }
+
+      .hero-copy p {
+        margin: 0;
+        color: rgba(234,241,225,0.85);
+        font-size: clamp(14px, 2.2vw, 18px);
+      }
+
+      .canvas-wrap {
+        background:
+          radial-gradient(800px 400px at 70% -10%, rgba(181,211,75,0.12), transparent 60%),
+          linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 16px;
+        padding: 10px;
+      }
+
+      canvas {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      }
+
+      footer {
+        margin-top: 28px;
+        padding: clamp(16px, 3.3vw, 24px) 0;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        color: rgba(234,241,225,0.8);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .footer-cols {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .footer-brand {
+        font-weight: 600;
+        color: var(--leaf);
+      }
+
+      .footer-links a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .footer-links a:hover {
+        text-decoration: underline;
+      }
+
+      /* Desktop layout tweaks */
+      @media (min-width: 820px) {
+        .hero {
+          grid-template-columns: 1.1fr 1.2fr;
+          align-items: center;
+          gap: 26px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr auto;
+          align-items: center;
+        }
+        .footer-cols {
+          grid-template-columns: auto auto;
+          gap: 20px 30px;
+        }
+
+
+
+        
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+    <header>
+      <div class="wrap">
+        <div class="brand">
+          <div class="badge" aria-hidden="true"></div>
+          <div class="title">Bulli Sot</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <section class="card hero">
+          <div class="hero-copy">
+            <h1>Spaceship Angkor</h1>
+            <p>
+              A = Up, B = Down
+            </p>
+            
+            <p></p><script src="sketch_003.js"></script>
+
+        </div>
+          <div class="canvas-wrap">
+
+
+
+
+            <div id="p5-holder"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap footer-grid">
+        <div class="footer-brand">© <span id="year"></span> Bulli Sot</div>
+        <div class="footer-cols">
+          <div class="footer-links">
+            <a href="https://www.jayaproduction.com" target="_blank" rel="noopener">Back to main portfolio</a>
+          </div>
+          <div>Made with p5.js • </div>
+        </div>
+      </div>
+    </footer>
+    </center>
+
+
+
+
+    <script>
+      // set dynamic year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

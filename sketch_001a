@@ -1,0 +1,38 @@
+let x = 0;
+let spaceData;
+
+function setup() {
+  createCanvas(400, 400);
+
+  loadJSON("http://api.open-notify.org/astros.json", gotData);
+
+  function gotData(data) {
+    console.log(data); 
+    spaceData = data;
+  }
+
+  textAlign(CENTER);
+  textSize(14);
+  fill(255);
+}
+
+function draw() {
+  background(0);
+  randomSeed(4); 
+
+  stroke(255);
+  line(x, 0, x, height);
+  x += 1; 
+
+  
+  if (spaceData) {
+    noStroke();
+    for (let i = 0; i < spaceData.people.length; i++) {
+      let xPos = random(width);
+      let yPos = random(height);
+      
+      ellipse(xPos, yPos, 15); 
+      text(spaceData.people[i].name, xPos, yPos - 10); 
+    }
+  }
+}
