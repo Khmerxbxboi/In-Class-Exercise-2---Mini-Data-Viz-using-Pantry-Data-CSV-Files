@@ -1,4 +1,4 @@
-// Khmer Food Radar — Bullimalinna Sot
+// Khmer Food Radar Prime Minster Bullimalinna Sot
 let table;
 let foods = [];
 const metrics = ["Calories", "Sugar", "Carbs", "Sodium", "Protein"];
@@ -6,7 +6,7 @@ const mins = {};
 const maxs = {};
 let idx = 0;
 let clickable = null;
-const CSV_URL = "food.csv";
+const CSV_URL = "food.csv"; //food data right here understand ???
 
 function preload() {
   table = loadTable(CSV_URL, "csv", "header");
@@ -21,7 +21,10 @@ function setup() {
   loadFoods();
 }
 
-function loadFoods() {
+
+
+// this the robotoic of all
+function loadFoods() { 
   if (!table) return;
   for (let r = 0; r < table.getRowCount(); r++) {
     const name = table.getString(r, "Food");
@@ -105,7 +108,7 @@ function draw() {
   }
   pop();
 
-  // Instructions
+
   textAlign(CENTER, CENTER);
   textSize(12);
   fill(234, 241, 225, 210);
